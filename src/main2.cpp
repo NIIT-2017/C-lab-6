@@ -5,7 +5,7 @@
 
 
 
-int main(void)
+int main(void)//как же я задолбался воевать с Тревисом. Я не понимаю, чего он от меня хочет.
 {
 	unsigned int maxlen = 0, number = 0;
 	number = seqCollatz(&maxlen);
