@@ -6,14 +6,9 @@
 
 int main(int argc, char* argv[])
 {
-	if (argc < 2)
-	{
-		printf("Usage: cmd_hello number");
-		return 1;
-	}
-	
 	char *buf = argv[1];
-	printf("%d", eval(buf + 1));
+	//char buf [] = "(((7-1)/(4+2))-9)";
+	printf("%d", eval(buf+1));
 
 	getchar();
 	return 0;
