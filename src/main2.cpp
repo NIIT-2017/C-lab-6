@@ -7,10 +7,10 @@
 
 int main(void)
 {
-	unsigned int maxlen = 0;
-	unsigned long long nummax = seqCollatz(&maxlen);
+	unsigned int maxlen = 0, number = 0;
+	number = seqCollatz(&maxlen);
 		
-	printf("%llu %u", nummax, maxlen);
+	printf("%u %u", number, maxlen);
 
 	getchar();
 	return 0;
