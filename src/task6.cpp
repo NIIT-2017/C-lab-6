@@ -1,8 +1,9 @@
 #include "task6.h"
+extern unsigned long long arr[41];
 
 unsigned long long fib1(int N)
 {
-	extern unsigned long long arr[41];
+
 
 	if (arr[N] != 0)
 		return arr[N];		// if we already have N-value, return it
