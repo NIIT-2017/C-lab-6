@@ -6,7 +6,7 @@ unsigned long long findOutFib(unsigned long long one, unsigned long long two, in
         return findOutFib(two, one + two, --N);
 }
 
-unsigned long long fib1(int N)
+unsigned long long fib2(int N)
 {
     if (N <= 0)
         return 0;

@@ -15,7 +15,7 @@ int main()
     for (int i = 1; i <= N; i++)
     {
         time = clock();
-        value = fib1(i);
+        value = fib2(i);
         time = clock() - time;
         ftime = (float)time / CLOCKS_PER_SEC;
         printf("Number %2i, value %6llu, time %f\n", i, value, ftime);

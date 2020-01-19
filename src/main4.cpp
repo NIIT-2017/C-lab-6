@@ -27,14 +27,10 @@ int main()
     for (int i = 0; carr != NULL && i < size; i++)
         carr[i] = rand() % 10;
 
-   /* for (int i = 0; arr != NULL && i < size; i++)
-        printf("%i ", arr[i]);
-    printf("\n");*/
-
-    clock_t timeÑ = clock();
+    clock_t timeC = clock();
     sum = sumC(carr, size);
-    timeÑ = clock() - timeÑ;
-    printf("sumC = %lli, timeC = %f\n", sum, (float)timeÑ / CLOCKS_PER_SEC);
+    timeC = clock() - timeC;
+    printf("sumC = %lli, timeC = %f\n", sum, (float)timeC / CLOCKS_PER_SEC);
     
     clock_t timeR = clock();
     sum = sumR(carr, size);
