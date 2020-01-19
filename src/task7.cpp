@@ -28,10 +28,10 @@ void printMap()
 
 void step(int xc, int yc, int xs, int ys)
 {
-    if (map[ys][xs] != '#' && map[ys][xs] != 'P' && map[ys][xs] != 'S' && map[ys][xs] != 'E')
+    if (map[ys][xs] != '#' && map[ys][xs] != 'P' && map[ys][xs] != 'S' && map[ys][xs] != 'E') //is allowed to go?
     {
         place(xs, ys);
-        if (map[yc][xc] != 'E')
+        if (map[yc][xc] != 'E') //where have you come back from?
             map[yc][xc] = map[ys][xs];
     }
 }
@@ -40,46 +40,16 @@ void place(int x, int y)
 {
     if ((x - 1) >= 0 && (x + 1) < M && (y - 1) >= 0 && (y + 1) < N)
     {
-        map[y][x] = 'P';
+        map[y][x] = 'P'; //Path
         step(x, y, x - 1, y);
-        /*if (map[y][x - 1] != '#' && map[y][x - 1] != 'P' && map[y][x - 1] != 'S' && map[y][x - 1] != 'E')
-        {
-            place(x - 1, y);
-            if (map[y][x] != 'E')
-                map[y][x] = map[y][x - 1];
-        }*/
         step(x, y, x, y + 1);
-        /*if (map[y + 1][x] != '#' && map[y + 1][x] != 'P' && map[y + 1][x] != 'S' && map[y + 1][x] != 'E')
-        {
-            place(x, y + 1);
-            if (map[y][x] != 'E')
-                map[y][x] = map[y + 1][x];
-        }*/
         step(x, y, x + 1, y);
-        /*if (map[y][x + 1] != '#' && map[y][x + 1] != 'P' && map[y][x + 1] != 'S' && map[y][x + 1] != 'E')
-        {
-            place(x + 1, y);
-            if (map[y][x] != 'E')
-                map[y][x] = map[y][x + 1];
-        }*/
         step(x, y, x, y - 1);
-        /*if (map[y - 1][x] != '#' && map[y - 1][x] != 'P' && map[y - 1][x] != 'S' && map[y - 1][x] != 'E')
-        {
-            place(x, y - 1);
-            if (map[y][x] != 'E')
-                map[y][x] = map[y - 1][x];
-        }*/
-        if ((map[y][x - 1] == 'E') ||
-            (map[y + 1][x] == 'E') ||
-            (map[y][x + 1] == 'E') ||
-            (map[y - 1][x] == 'E'))
-            map[y][x] = 'E';
-        else
-            map[y][x] = 'S';
     }
     else
     {
-        map[y][x] = 'E';
+        map[y][x] = 'E'; // Exit
+        printf("Coordinates of the exit x = %i, y = %i\n", x, y);
         printMap();
     }
 }

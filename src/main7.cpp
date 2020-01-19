@@ -14,7 +14,7 @@ int main()
     fclose(fp);
     printMap();
     place(11, 4);
-    printf("end\n");
+    printf("End\n");
     printMap();
     
     return 0;
