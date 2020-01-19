@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "task8.h"
 
-int main()
+int main(int argc, char* argv[])
 {
 	printf("You are welcomed by the string calculator, enter your string:");
 	char bufer[256];
