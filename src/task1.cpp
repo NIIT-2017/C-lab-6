@@ -1,6 +1,14 @@
 #include <stdio.h>
-#include < math.h >
 #define M 300
+
+int pow(int i)
+{
+	int q = 1;
+	for (int j = 0; j < i; j++)
+		q *= 3;
+
+	return q;
+}
 
 void fprintArr(char(*m)[M], FILE* fp)
 {
@@ -30,9 +38,9 @@ void drawFractal(char(*arr)[M], int x, int y, int size)
 	else
 	{
 		drawFractal(arr, x, y, size - 1);
-		drawFractal(arr, x + pow(3, (size - 1)), y, size - 1);
-		drawFractal(arr, x, y + pow(3, (size - 1)), size - 1);
-		drawFractal(arr, x - pow(3, (size - 1)), y, size - 1);
-		drawFractal(arr, x, y - pow(3, (size - 1)), size - 1);
+		drawFractal(arr, x + pow(size - 1), y, size - 1);
+		drawFractal(arr, x, y + pow(size - 1), size - 1);
+		drawFractal(arr, x - pow(size - 1), y, size - 1);
+		drawFractal(arr, x, y - pow(size - 1), size - 1);
 	}
 }
