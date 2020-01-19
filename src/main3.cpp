@@ -5,7 +5,7 @@
 
 int main()
 {
-    char buf[512] = {0};
+    char buf[512];
     unsigned int value = 0;
     printf("Enter a number\n");
     scanf("%u", &value);

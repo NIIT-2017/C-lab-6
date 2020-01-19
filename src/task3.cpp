@@ -12,6 +12,7 @@ char* int2str(char* buf, unsigned int value)
     {
         p = int2str(buf, number);
         *p = (char)('0' + (value % 10));
+        *(p + 1) = 0;
         return ++p;
     }
 }
