@@ -1,6 +1,6 @@
 unsigned int collatz(unsigned long long num)
 {
-	unsigned int N = 1;
+	/*unsigned int N = 1;
 
 	while (num != 1)
 	{
@@ -11,7 +11,13 @@ unsigned int collatz(unsigned long long num)
 		N++;
 	}
 
-	return N;
+	return N;*/
+	if (num == 1)
+		return 1;
+	if (num % 2)
+		return collatz(num * 3 + 1) + 1;
+	else
+		return collatz(num / 2) + 1;
 }
 unsigned int seqCollatz(unsigned int* maxlen)
 {
