@@ -5,7 +5,7 @@ int main()
 {
     unsigned int maxlen = 0;
     
-    printf("%d\n", seqCollatz(&maxlen));
+    printf("%u\n", seqCollatz(&maxlen));
 
     return 0;
 }
