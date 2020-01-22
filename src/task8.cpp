@@ -14,13 +14,13 @@ void fillExpr2(char *buf, int i, char *expr2)
 	expr2[lenex2 - 1] = '\0';
 }
 
-int eval(char* buf)
+int eval(const char* buf)
 {
 	if (buf[0] != '(')
 		return atoi(buf);
 	char a1[256], a2[256];
 	char op;
-	op = partition(buf, a1, a2);
+	op = partition((char*)buf, a1, a2);
 	
 	switch (op)
 	{

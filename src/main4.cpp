@@ -9,6 +9,7 @@ void initArr(char* arr, int n);
 int main()
 {
 	int m = 0;
+
 	printf("Enter the value of the degree: ");
 	int result = scanf("%d", &m);
 	if (result == 0 || m < 0)
@@ -38,7 +39,7 @@ int main()
 	clock_t end2 = clock();
 
 	printf("%6s %6s   %10s %10s\n", "=t1", "=t2", "=SumRec", "=SumCount");
-	printf("%6.2f %6.2f   %10d %10d\n", (float)(end1 - begin1) / CLOCKS_PER_SEC, (float)(end2 - begin2) / CLOCKS_PER_SEC, sumRec, sumCount);
+	printf("%6.2f %6.2f   %10lld %10lld\n", (float)(end1 - begin1) / CLOCKS_PER_SEC, (float)(end2 - begin2) / CLOCKS_PER_SEC, sumRec, sumCount);
 
 	free(arr);
 
@@ -57,5 +58,5 @@ void initArr(char* arr, int n)
 {
 	int i;
 	for (i = 0; i < n; i++)
-		arr[i] = rand() % 10 + '0';
+		arr[i] = rand() % 10;
 }
