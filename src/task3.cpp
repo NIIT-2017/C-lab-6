@@ -15,6 +15,9 @@ int digit(unsigned int n)
 char* int2str(char* buf, unsigned int value)
 {
 	if (value)
-		int2str(buf, value/10)[digit(value)-1] = '0' + value % 10;
+	{
+		int2str(buf, value / 10)[digit(value) - 1] = '0' + value % 10;
+		*(buf+digit(value)) = '\0';
+	}
 	return buf;
 }
