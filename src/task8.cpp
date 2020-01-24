@@ -3,18 +3,18 @@
 
 char partition(char* buf, char* expr1, char* expr2)
 {
-	char sign;
+	char sign = '+';
 	int parenthesis = 0,
 		i1 = 0,
 		i2 = 0,
 		j = 0;
 	
-	// удаляем лишние скобки в начале и в конце
+	// СѓРґР°Р»СЏРµРј Р»РёС€РЅРёРµ СЃРєРѕР±РєРё РІ РЅР°С‡Р°Р»Рµ Рё РІ РєРѕРЅС†Рµ
 	for (int i = 0; i < strlen(buf); i++)
 		buf[i] = buf[i + 1];
 	buf[strlen(buf) - 1] = '\0';
 
-	// записываем первый аргумент
+	// Р·Р°РїРёСЃС‹РІР°РµРј РїРµСЂРІС‹Р№ Р°СЂРіСѓРјРµРЅС‚
 	if (buf[0] != '(')
 		for (; buf[j] >= 48 && buf[j] <= 57; j++, i1++)
 			expr1[i1] = buf[j];
@@ -31,10 +31,10 @@ char partition(char* buf, char* expr1, char* expr2)
 	}
 	expr1[i1] = '\0';
 
-	// записываем арифметический знак
+	// Р·Р°РїРёСЃС‹РІР°РµРј Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРёР№ Р·РЅР°Рє
 	sign = buf[j++]; 
 
-	// записываем второй аргумент
+	// Р·Р°РїРёСЃС‹РІР°РµРј РІС‚РѕСЂРѕР№ Р°СЂРіСѓРјРµРЅС‚
 	for (; buf[j]; j++, i2++)
 		expr2[i2] = buf[j];
 	expr2[i2] = '\0';
@@ -44,11 +44,11 @@ char partition(char* buf, char* expr1, char* expr2)
 
 int eval(char* buf)
 {
-	if (buf[0] != '(') // если добрались до цифры
+	if (buf[0] != '(') // РµСЃР»Рё РґРѕР±СЂР°Р»РёСЃСЊ РґРѕ С†РёС„СЂС‹
 		return atoi(buf);
 	
-	char a1[256], a2[256];
-	char op;
+	char a1[256]{}, a2[256]{};
+	char op = '+';
 	
 	op = partition(buf, a1, a2);
 		
