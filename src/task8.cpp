@@ -1,13 +1,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-char partition(char* buf, char* expr1, char* expr2)
+char partition(char* bufs, char* expr1, char* expr2)
 {
 	char sign = '+';
 	int parenthesis = 0,
 		i1 = 0,
 		i2 = 0,
 		j = 0;
+	char buf[256]{};
+	for (int n = 0; bufs[n]!='\0'; n++)
+		buf[n] = bufs[n];
 	for (int i = 0; i < (strlen(buf)-1); i++) // удаляем лишние скобки в начале и в конце (раскрываем переданное выражение)
 		buf[i] = buf[i + 1];
 	buf[strlen(buf) - 1] = '\0';
