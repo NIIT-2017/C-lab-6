@@ -29,16 +29,14 @@ char partition(char* buf, char* expr1, char* expr2)
 				parenthesis--;
 		}
 	}
-	expr1[i1] = '\0';
-
+	
 	// записываем арифметический знак
 	sign = buf[j++]; 
 
 	// записываем второй аргумент
 	for (; buf[j]; j++, i2++)
 		expr2[i2] = buf[j];
-	expr2[i2] = '\0';
-	
+		
 	return sign;
 }
 
