@@ -14,7 +14,6 @@ int main()
 		return 1;
 	}
 	char buf[SIZE];
-	int2str(buf, num);
-	printf("%s\n", buf);
+	printf("%s\n", int2str(buf, num));
 	return 0;
 }
