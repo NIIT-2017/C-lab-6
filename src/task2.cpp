@@ -38,5 +38,6 @@ unsigned int collatz(unsigned long long num)
         {
             count++;
             collatz((3 * num) + 1);
+		}
     }
 }
