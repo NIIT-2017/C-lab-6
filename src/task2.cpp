@@ -1,24 +1,18 @@
 unsigned int collatz(unsigned long long num)
 {
-	static int a = 1;
-	int max = 1;
 	if (num == 1)
 	{
-		max = a;
-		a = 1;
-		return a;
+		return 1;
 	}
 	if ((num % 2) == 0)
 	{
 		num = num / 2;
-		collatz(num);
-		a++;
+		return collatz(num)+1;
 	}
 	else
 	{
 		num = 3 * num + 1;
-		collatz(num);
-		a++;
+		return collatz(num)+1;
 	}
 }
 unsigned int seqCollatz(unsigned int* maxlen)

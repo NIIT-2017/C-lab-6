@@ -7,7 +7,7 @@ int main()
 {
 	//FILE* out = stdout;
 	FILE* out = fopen("Lab5_fib1.xls", "wt");
-	for (int i = 1; i < 48; i++)
+	for (int i = 1; i < 23; i++)
 	{
 		clock_t begin = clock();
 		unsigned long long fib = fib1(i);
