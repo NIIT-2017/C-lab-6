@@ -20,7 +20,7 @@ unsigned int seqCollatz(unsigned int* maxlen)
 
 unsigned int collatz(unsigned long long num)
 {
-    static int count = 0;
+    static unsigned int count = 0;
     if (num == 1)
     {
         int result = count+1;
