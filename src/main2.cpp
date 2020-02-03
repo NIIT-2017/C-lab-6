@@ -3,9 +3,10 @@
 
 int main()
 {
-    unsigned int maxlen = 0;
-    
-    printf("%u\n", seqCollatz(&maxlen));
+    unsigned int maxlen;
+    unsigned int num = seqCollatz(&maxlen);
+
+    printf("Number is %u, max length is %u\n", num, maxlen);
 
     return 0;
 }

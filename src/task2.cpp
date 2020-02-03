@@ -26,6 +26,5 @@ unsigned int seqCollatz(unsigned int *maxlen)
             number = i;
         }
     }
-    printf("Number is %llu, max length is ", number);
-    return *maxlen;
+    return number;
 }
