@@ -15,6 +15,7 @@ unsigned int collatz(unsigned long long num)
 
 unsigned int seqCollatz(unsigned int *maxlen)
 {
+    *maxlen = 0;
     unsigned int len = 0;
     unsigned long long number = 2;
     for (unsigned long long i = 2; i < 1000000; i++)
