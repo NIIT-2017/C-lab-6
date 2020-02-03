@@ -8,7 +8,7 @@ ULL fib_iter(ULL K, ULL M, int N)
         return fib_iter(M, K + M, N - 1);
 }
 
-ULL fib(int i)
+ULL fib2(int i)
 {
     return fib_iter(0, 1, i);
 }
