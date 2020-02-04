@@ -22,6 +22,6 @@ long long sumRecursion(char* arr, int left, int right)
 }
 long long sumR(char* arr, int len)
 {
-    int sum = sumRecursion(arr, 0, len);
+    int sum = sumRecursion(arr, 0, len-1);
     return sum;
 }

@@ -3,5 +3,4 @@
 #include <stdio.h>
 #include <string.h>
 int eval(char* buf);
-int eval1(char* buf);
 char partition(char* buf, char* expr1, char* expr2);
