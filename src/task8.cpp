@@ -9,12 +9,10 @@ int stringToint(char* buf,int *len)
     {
         number += (buf[i] - '0') * pow(10, (*len) - i - 1);
     }
-    printf("\n new Number %d", number);
     return number;
 }
 int doAction(char action, int A, int B)
 {
-    printf("\nAction %d %c %d",A, action,B);
     int result=0;
     switch (action)
     {
@@ -38,7 +36,6 @@ int doAction(char action, int A, int B)
 }
 int computeLeap(char* buf, int i)
 {
-    printf("\nCompute leap");
     int leap = 0;
     int forward = 0, back = 0;
     bool first = true;
@@ -58,7 +55,6 @@ int computeLeap(char* buf, int i)
         }
         leap++;
     } while (back <= forward && buf[i + leap] != '\0');
-    printf(" %d", leap);
     return leap;
 }
 bool isEnd(char* buf,int end)
@@ -76,12 +72,10 @@ bool isEnd(char* buf,int end)
         }
         i++;
     }
-    printf("\nIs end true");
     return true;
 }
 int eval(char* buf)
 {
-    printf("\nNew eval : %s",buf);
     int result = 0;
     int i=0;
     int level=0;
@@ -93,12 +87,9 @@ int eval(char* buf)
         {
             if (level == 0)
             {
-                printf("\nLevel zero");
                 if (first == true)
                 {
-                    printf("\nFirst :");
                     result +=eval(&buf[i] + 1);
-                    printf("\nNew result %d", result);
                     first = false;
                     int leap = computeLeap(buf, i);
                     if (isEnd(&buf[i], leap))
@@ -121,13 +112,11 @@ int eval(char* buf)
                 int len=0;
                 result += stringToint(&buf[i], &len);
                 first = false;
-                printf("\nNew result %d", result);
                 i += len-1;
             }
             if (buf[i] == '+' || buf[i] == '/' || buf[i] == '*' || buf[i] == '-')
             {
                 result = doAction(buf[i], result, eval(&buf[i] +1));
-                printf("\nNew result %d", result);
                 int leap = computeLeap(buf, i) + 1;
                 if (isEnd(&buf[i], leap))
                     return result;
