@@ -5,6 +5,6 @@
 
 typedef unsigned long long ULL;
 
-unsigned long long fib2(int N);
-ULL fib_iter(int K, int M, int N);
+//unsigned long long fib2(int N);
+ULL fib_iter(ULL K, ULL M, int N);
 ULL fib2(int i);

@@ -1,13 +1,8 @@
 #include "task1.h"
 
-void drawFractal(char (*arr)[M], int x,int y, int size) {
-
-
-}
-
 //****************************************************
-#define N 80
-#define M 80
+#define N 82
+#define M 82
 
 char arr[N][M];
 

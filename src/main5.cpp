@@ -11,7 +11,7 @@ int main() {
 		return 1;
 	}
 
-	for (int i = 1; i <= 25; i++) {
+	for (int i = 1; i <= 33; i++) {
 		printf("%d-%lld\n", i, fib1(i));
 		fprintf(fp, "%d-%lld\n", i, fib1(i));
 	}

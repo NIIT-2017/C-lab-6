@@ -2,7 +2,7 @@
 
 unsigned long long fib1(int N){
 	if (N == 1)
-		return 0;
+		return 1;
 	else if(N == 2)
 		return 1;
 	else
