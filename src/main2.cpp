@@ -9,7 +9,7 @@ int main() {
 	num = seqCollatz(&maxLen);
 
 	printf("\n************************************************\n");
-	printf("num = %d, maxLen = %u\n", num, maxLen);
+	printf("num = %u, maxLen = %u\n", num, maxLen);
 	printf("************************************************\n");
 	printf("\n");
 
