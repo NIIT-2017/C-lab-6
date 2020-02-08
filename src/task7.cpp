@@ -12,26 +12,27 @@ void place(int x, int y) {
         exit(1);
     }
 
+    if (labirinth[x - 1][y] == ' ') {
+        printf("labirinth[x - 1][y] = %c\n", labirinth[x - 1][y]);
+        printf("x - 1 = %d, y = %d\n", x - 1, y);
+        place(x - 1, y);
+    }
+
+    if (labirinth[x][y - 1] == ' ') {
+        printf("labirinth[x - 1][y] = %c\n", labirinth[x][y - 1]);
+        printf("x = %d, y - 1 = %d\n", x, y - 1);
+        place(x, y - 1);
+    }
+
     if (labirinth[x + 1][y] == ' ') {
         printf("labirinth[x + 1][y] = %c\n", labirinth[x + 1][y]);
         printf("x + 1 = %d, y = %d\n", x + 1, y);
         place(x + 1, y);
     }
-    else if (labirinth[x][y + 1] == ' ') {
+    
+    if (labirinth[x][y + 1] == ' ') {
         printf("labirinth[x][y + 1] = %c\n", labirinth[x][y + 1]);
         printf("x = %d, y + 1 = %d\n", x, y + 1);
         place(x, y + 1);
     }
-    else if (labirinth[x - 1][y] == ' ') {
-        printf("labirinth[x - 1][y] = %c\n", labirinth[x - 1][y]);
-        printf("x - 1 = %d, y = %d\n", x - 1, y);
-        place(x - 1, y);
-    }
-    else if (labirinth[x][y - 1] == ' ') {
-        printf("labirinth[x - 1][y] = %c\n", labirinth[x][y - 1]);
-        printf("x = %d, y - 1 = %d\n", x, y - 1);
-        place(x, y - 1);
-    }
-    
-    
 }
