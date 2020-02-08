@@ -5,24 +5,27 @@ unsigned int collatz(unsigned long long num) - функция, возвращающая длину после
 
 #include "task2.h"
 
+#define printf //
+
 unsigned int collatz(unsigned long long num) {
-	static int count = 0;
-	count++;
-	if (num == 1)
+	if (num == 1) {
+		printf("num = %llu\n", num);
 		return num;
+	}
 
 	//while (num != 1) {
 	//	num = (num & 1) ? (3 * num + 1) : (num >> 1);
 	//	cnt++;
 	//}
 
-	if (num % 2) {
+	if (num & 1) {
+		printf("!(num % 2)= %llu\n", num);
 		return collatz(num * 3 + 1) + 1;
 	}
 	else {
+		printf("(num % 2)= %llu\n", num);
 		return collatz(num >> 1) + 1;
 	}
-	return count;
 }
 
 unsigned int seqCollatz(unsigned int* maxlen) {
