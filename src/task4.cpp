@@ -10,12 +10,12 @@ long long sumC(char* arr, int len) {
 }
 
 long long sumR(char* arr, int len) {
-
+    int half = len / 2;
     if (len == 1) {
         return *arr;
     }
     else {
-        return sumR(arr, len /2) + sumR(arr+len/2, len/2);
+        return sumR(arr, half) + sumR(arr+half, len-half);
     }
 
 }
