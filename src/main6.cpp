@@ -4,18 +4,19 @@
 #include <stdlib.h>
 #include <time.h>
 
+
 #define SIZE 40
 
 int main()
 {
-	FILE* f_out = fopen("FILE.xls", "wt");
+	FILE* out = fopen("FILE.xls", "wt");
 	for (int i = 1; i < SIZE; i++)
 	{
 		clock_t start = clock();
 		unsigned long long fib = fib2(i);
 		clock_t finish = clock();
-		fprintf(f_out, "%llu\t %6.2f\n", fib, (float)(finish - start) / CLOCKS_PER_SEC);
+		fprintf(out, "%6.2f - %llu\n", (float)(finish - start) / CLOCKS_PER_SEC, fib);
 	}
-	fclose(f_out);
+	fclose(out);
 	return 0;
 }

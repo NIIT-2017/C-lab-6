@@ -1,1 +1,2 @@
-unsigned long long fib2(int N); //нахождение N - ого члена ряда Фибоначчи
+unsigned long long fib2(int N);
+unsigned long long fib1(unsigned long long f1, unsigned long long f2, int N);
