@@ -7,7 +7,7 @@
 char partition(char* buf, char* expr1, char* expr2)
 {
 	int opening = 0, closing = 0;
-	buf[strlen(buf) - 1] = '\0';
+	buf[strlen(buf)] = '\0';
 	int length = strlen(buf);
 	int sign = 0, isign = 0;
 	
@@ -31,14 +31,14 @@ char partition(char* buf, char* expr1, char* expr2)
 		expr1[j] = buf[i];
 		j++;
 	}
-	expr1[isign] = '\0';
+	//buf[isign] = '\0';
 	j = 0;
 	for (int i = isign + 1; i < length; i++)
 	{
 		expr2[j] = buf[i];
 		j++;
 	}
-	expr2[length] = '\0';
+	//buf[isign] = '\0';
 	
 	return sign;
 }
