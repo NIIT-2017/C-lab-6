@@ -5,7 +5,7 @@ unsigned long long fib1(unsigned long long f1, unsigned long long f2, int N)
 	else if (N == 2)
 		return f2;
 	else
-		return fib1(f2, f2 + f1, N-1);
+		return fib1(f2, f2 + f1, N - 1);
 }
 unsigned long long fib2(int N)
 {
