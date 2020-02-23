@@ -7,7 +7,7 @@
 char partition(char* buf, char* expr1, char* expr2)
 {
 	int opening = 0, closing = 0;
-	buf[strlen(buf)] = '\0';
+	//buf[strlen(buf)] = '\0';
 	int length = strlen(buf);
 	int sign = 0, isign = 0;
 	
