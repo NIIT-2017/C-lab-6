@@ -6,13 +6,19 @@
 
 char partition(char* buf, char* expr1, char* expr2)
 {
+	int opening = 0, closing = 0;
 	buf[strlen(buf) - 1] = '\0';
 	int length = strlen(buf);
 	int sign = 0, isign = 0;
 	
-	for (int i = 0; i < length; i++)
+	for (int i = 0; i <= length; i++)
 	{
-		if (buf[i] == '-' || buf[i] == '+' || buf[i] == '*' || buf[i] == '/')
+		if (buf[i] == '(')
+			opening++;
+		else if (buf[i] == ')')
+			closing++;
+		else
+		if ((buf[i] == '-' || buf[i] == '+' || buf[i] == '*' || buf[i] == '/') && ((opening - 1) == closing))
 		{
 			sign = buf[i];
 			isign = i;
