@@ -31,12 +31,14 @@ char partition(char* buf, char* expr1, char* expr2)
 		expr1[j] = buf[i];
 		j++;
 	}
+	expr1[isign] = '\0';
 	j = 0;
 	for (int i = isign + 1; i < length; i++)
 	{
 		expr2[j] = buf[i];
 		j++;
 	}
+	expr2[length] = '\0';
 	
 	return sign;
 }
