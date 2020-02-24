@@ -4,6 +4,7 @@
 
 unsigned int seqCollatz(unsigned int* maxlen)
 {
+	*maxlen = 0;
 	unsigned int length;
 	unsigned long long maxNum;
 
