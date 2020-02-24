@@ -9,7 +9,7 @@ int main()
 	puts("Enter any number!");
 	scanf("%d", &getNumber);
 
-	char line[SIZE] = {'\0'};
+	char line[SIZE];
 	
 	int2str(line, getNumber);
 	
