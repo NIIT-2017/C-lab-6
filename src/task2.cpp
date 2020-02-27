@@ -4,28 +4,24 @@
 
 unsigned int collatz(unsigned long long num)
 {
-	static unsigned int count = 0;
+	static int count = 0;
 	count++;
-	unsigned int len;
 
 	if (num == 1)
-	{
-		len = count;
-		count = 0;
-		return len;
-	}
+		return num;
 
 	else if (num % 2 == 0)
-		return collatz(num / 2);
+		return collatz(num / 2)+1;
 	
-	else //if num%2!=0
-		return collatz(3 * num + 1);
+	else if (num%2!=0)
+		return collatz(3 * num + 1)+1;
 }
 
 unsigned int seqCollatz(unsigned int *maxlen)
 {
-	unsigned int len;
-	unsigned long long num;
+	unsigned int len=0;
+	unsigned long long num=2;
+	*maxlen=0;
 	for (unsigned long long i = 2; i < 1000000; i++)
 	{
 		len=collatz(i);
