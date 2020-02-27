@@ -37,9 +37,9 @@ long long sumC(char* arr, int len)
 
 long long sumR(char* arr, int len)
 {
-	if (len == 0)
-		return *(arr + len);
+	if (len == 1)
+		return *(arr + 0);
 
 	else
-		return *(arr + len) + sumR(arr, len - 1);
+		return sumR(arr,len/2) + sumR(arr-len/2, len - len/2);
 }
