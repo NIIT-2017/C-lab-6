@@ -41,5 +41,5 @@ long long sumR(char* arr, int len)
 		return *(arr + 0);
 
 	else
-		return sumR(arr,len/2) + sumR(arr-len/2, len - len/2);
+		return sumR(arr,len/2) + sumR(arr+len/2, len - len/2);
 }
