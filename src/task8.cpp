@@ -1,20 +1,20 @@
 #include "task8.h"
-int stringToint(char* buf,int *len)
+
+int stringToint(char* buf)
 {
+    int len=0;
     do {
-        (*len)++;
-    } while (buf[*len] >= '0' && buf[*len] <= '9');
+        len++;
+    } while (buf[len] >= '0' && buf[len] <= '9');
     int number = 0;
-    for (int i = (*len - 1); i >= 0; i--)
+    for (int i = (len - 1); i >= 0; i--)
     {
-        number += (buf[i] - '0') * pow(10, (*len) - i - 1);
+        number += (buf[i] - '0') * pow(10, len - i - 1);
     }
-    //printf("\n new Number %d", number);
     return number;
 }
 int doAction(char action, int A, int B)
 {
-    //printf("\nAction %d %c %d",A, action,B);
     int result=0;
     switch (action)
     {
@@ -36,111 +36,48 @@ int doAction(char action, int A, int B)
     }
     return result;
 }
-int computeLeap(char* buf, int i)
+bool isAction(char symbol)
 {
-    //printf("\nCompute leap");
-    int leap = 0;
-    int forward = 0, back = 0;
-    bool first = true;
-    do
+    char actions[] = "+-*/";
+    for (int i = 0; i < 4; i++)
     {
-        if (buf[i + leap] == '(')
-        {
-            forward++;
-            first = false;
-        }
-        if (buf[i + leap] == ')')
-            back++;
-        if (back == forward && !first)
-        {
-            leap -= 1;
-            break;
-        }
-        leap++;
-    } while (back <= forward && buf[i + leap] != '\0');
-    //printf(" %d", leap);
-    return leap;
+        if (actions[i] == symbol)
+            return true;
+    }
+    return false;
 }
-bool isEnd(char* buf,int end)
+int findAction(char *buf)
 {
-    int i = 0, back = 0, forward = 0;
-    while (i<=end)
+    int back = 0, forward = 0, i = 0;
+    i++;
+    while (!isAction(buf[i]) || (back != forward))
     {
         if (buf[i] == '(')
             forward++;
         if (buf[i] == ')')
-        {
             back++;
-            if (back > forward)
-                return false;
-        }
         i++;
     }
-    if (back == forward)
-        return false;
-    //printf("\nIs end true");
-    return true;
+    return i;
 }
 int eval(char* buf)
 {
-    //printf("\nNew eval : %s",buf);
-    int result = 0;
-    int i=0;
-    int level=0;
-    bool first = true;
-    char action;
-    do
+    int i;
+    if (buf[0] == '(')
     {
-        if (buf[i] == '(')
-        {
-            if (level == 0)
-            {
-                //printf("\nLevel zero");
-                if (first == true)
-                {
-                    //printf("\nFirst :");
-                    result +=eval(&buf[i] + 1);
-                    //printf("\nNew result %d", result);
-                    first = false;
-                    int leap = computeLeap(buf, i)+1;
-                    if (isEnd(&buf[i], leap))
-                        return result;
-                    i += leap;
-                }
-            }
-            level++;
-        }
-        else
-        {
-            if (buf[i] == ')')
-            {
-                level--;
-                if (level < 0)
-                    return result;
-            }
-            if (buf[i] >= '0' && buf[i] <= '9'&&first)
-            {
-                int len=0;
-                result += stringToint(&buf[i], &len);
-                first = false;
-                //printf("\nNew result %d", result);
-                i += len-1;
-            }
-            if (buf[i] == '+' || buf[i] == '/' || buf[i] == '*' || buf[i] == '-')
-            {
-                result = doAction(buf[i], result, eval(&buf[i] +1));
-                //printf("\nNew result %d", result);
-                int leap = computeLeap(buf, i)+1;
-                if (isEnd(&buf[i], leap))
-                    return result;
-                i += leap;
-            }
-        }
-        i++;
-    } while (buf[i] != '\0');
-    return result;
+        i = findAction(buf);
+    }
+    else
+        return(stringToint(buf));
+    char* expr1 = (char*)malloc(sizeof(char) * i),*expr2=(char*)malloc(sizeof(char)*(strlen(buf)-i));
+    char action = partition(buf, expr1, expr2);
+    return doAction(action,eval(expr1), eval(expr2));
 }
 char partition(char* buf, char* expr1, char* expr2)
 {
-    return 'a';
+    int expr1Len = findAction(buf);
+    sprintf(expr1, "%s", &buf[1]);
+    expr1[expr1Len-1] = '\0';
+    sprintf(expr2, "%s", &buf[expr1Len + 1]);
+    return buf[expr1Len];
 }
