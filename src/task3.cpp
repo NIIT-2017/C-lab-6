@@ -2,7 +2,7 @@
 #include<string.h>
 char* int2str(char *buf, unsigned int value)
 {
-	{
+	
 		if (value / 10 >= 1)
 		{
 			int2str(buf, value / 10);
