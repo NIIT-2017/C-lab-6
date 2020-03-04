@@ -1,5 +1,5 @@
 #include"task3.h"
-extern int j = 0;
+int j = 0;
 char * int2str(char *buf, unsigned int value)
 {
     int i = 0;
