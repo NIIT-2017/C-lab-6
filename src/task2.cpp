@@ -13,7 +13,7 @@ unsigned int seqCollatz(unsigned int *maxlen)
 {
    ULL Sequence =1;
    ULL j =0;
-   *maxlen = -1;
+   *maxlen = 1;
    for(int  i =2 ; i <= 1000000;i++)
    {
       j = collatz(i);
