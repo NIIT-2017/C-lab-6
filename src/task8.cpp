@@ -7,7 +7,7 @@ char partition(char *buf, char *expr1, char *expr2)
 {
 	int brace = 0;
 	int i = 0; 
-	int j = 0, 
+	int j = 0; 
 	int point = 0;
 	for (i = 0; buf[i]; i++)
 	{
