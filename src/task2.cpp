@@ -1,6 +1,6 @@
 #include"task2.h"
 typedef unsigned long long ULL;
-unsigned int collatz(usigned long long num)
+unsigned int collatz(unsigned long long num)
 {
    if(num ==1)
      return 1;
