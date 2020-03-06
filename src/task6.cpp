@@ -15,6 +15,6 @@ unsigned long long fib1(int N,unsigned long long *x, unsigned long long *y)
 
 unsigned long long fib2(int N)
 {
-	int x = 0, y = 1;
+	unsigned long long x = 0, y = 1;
 	return fib1(N, &x, &y);
 }
