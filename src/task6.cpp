@@ -1,20 +1,21 @@
 #include <stdio.h>
 
-unsigned long long fib1(int N,unsigned long long *x, unsigned long long *y)
+unsigned long long fib1(unsigned long long f1, unsigned long long f2, int N)
 {
-	unsigned long long z = *x + *y;
-	if (N < 2)
-    	{
-        	return *y;
+	if (N == 1)
+	{
+		return 1;	
+	}
+	else if (N == 2)
+	{
+		return f2;
 	}
 	else
 	{
-        	return fib1(N - 1, y, &z);
+		return fib1(f2, f2 + f1, N - 1);
 	}
 }
-
 unsigned long long fib2(int N)
 {
-	unsigned long long x = 0, y = 1;
-	return fib1(N, &x, &y);
-}
+	return (fib1(1, 1, N));
+} 
