@@ -1,15 +1,15 @@
 #include <stdio.h>
 
-unsigned long long fib1(int N, int *x, int *y)
+unsigned long long fib1(int N,unsigned long long *x, unsigned long long *y)
 {
 	unsigned long long z = *x + *y;
 	if (N < 2)
-    {
-        return *y;
+    	{
+        	return *y;
 	}
 	else
 	{
-        return fib1(N - 1, y, &z);
+        	return fib1(N - 1, y, &z);
 	}
 }
 
