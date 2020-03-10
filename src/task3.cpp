@@ -1,18 +1,13 @@
-#define _CRT_SECURE_NO_WARNINGS
-#include "task3.h"
-#include <stdio.h>
-
-#define SIZE 256
-
-int main()
+char* int2str(char* buf, unsigned int value)
 {
-	char buf[SIZE] = { 0 };
-	unsigned int value = 0;
-
-	printf("Enter number\n");
-	scanf("%u", &value);
-
-	printf("%s\n", int2str(buf, value));
-
-	return 0;
+	static int i = 0;
+	if (value > 10)
+	{
+		int2str(buf, value / 10);
+	}
+	value %= 10;
+	buf[i] = value + '0';
+	buf[i + 1] = '\0';
+	i++;
+	return buf;
 }
